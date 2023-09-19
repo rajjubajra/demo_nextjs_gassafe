@@ -1,7 +1,11 @@
-<IfModule mod_rewrite.c>
-  RewriteEngine on 
-  RewriteCond %{REQUEST_FILENAME} !-d 
-  RewriteCond
-  %{REQUEST_FILENAME}\.html -f 
-  RewriteRule ^(.*)$ $1.html [NC,L]
-</IfModule>
+RewriteEngine On
+RewriteBase /nextjs/gassafe/
+
+# Handle requests for static assets (like CSS, JS, and images) directly
+RewriteRule ^/_next/static/(.*)$ public/static/$1 [L]
+
+# Handle requests for the Next.js service worker
+RewriteRoute /service-worker.js public/service-worker.js [L]
+
+# Handle requests for Next.js pages (CSR)
+RewriteRule ^(.*)$ /nextjs/gassafe/index.html [QSA,L]
