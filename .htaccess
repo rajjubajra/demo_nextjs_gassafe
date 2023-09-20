@@ -1,1 +1,4 @@
-DirectoryIndex index.html
+RewriteEngine On
+
+# Rewrite specific resource paths to include '/nextjs/gassafe'
+RewriteRule ^_next/static/media/(.*)$ /nextjs/gassafe/_next/static/media/$1 [L]
