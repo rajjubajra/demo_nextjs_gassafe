@@ -1,16 +1,3 @@
-RewriteEngine On
-RewriteBase /nextjs/gassafe/
-
-# Redirect requests for the root to the Next.js app
-RewriteRule ^$ /nextjs/gassafe/index.html [QSA,L]
-
-# Handle requests for static assets (like CSS, JS, and images) directly
-RewriteRule ^/_next/static/(.*)$ /nextjs/gassafe/_next/static/$1 [L]
-
-# Handle requests for the Next.js service worker
-RewriteRule ^/service-worker.js$ /nextjs/gassafe/service-worker.js [L]
-
-# Handle all other requests by passing them to the Next.js app
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /nextjs/gassafe/index.html [QSA,L]
+<FilesMatch "\.js$">
+ForceType application/javascript
+</FilesMatch>
