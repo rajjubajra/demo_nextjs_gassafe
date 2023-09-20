@@ -1,3 +1,1 @@
-<FilesMatch "\.js$">
-ForceType application/javascript
-</FilesMatch>
+DirectoryIndex index.html
